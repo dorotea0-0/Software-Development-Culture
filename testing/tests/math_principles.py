@@ -17,6 +17,11 @@ def test_with_bug():
     print("Bug")
     #assert add_with_bug(2, 3) == 5
 
+def test_dublicate():
+    #тест дублирует себя
+    assert add(2, 2) == 2 + 2
+
 if __name__ == "__main__":
     test_addition()
     test_with_bug()
+    test_dublicate()
