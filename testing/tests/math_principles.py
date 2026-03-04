@@ -3,7 +3,9 @@ sys.path.append("../src")
 
 from math_demo import (
 add,
-add_with_bug
+add_with_bug,
+calculate_tax_with_bug,
+calculate_tax
 )
 
 def test_addition():
@@ -37,7 +39,27 @@ def test_reasonadle():
 def test_commutative():
     assert add(2, -2) == 0
     assert add(-2, 2) == 0
+    print("Commutative")
 
+def test_tax_calculation():
+    #типами ограничили случаи которо=ые можем посмотреть
+    assert calculate_tax_with_bug(1000) == 150.0
+    assert calculate_tax_with_bug(100) == 15.0
+    assert calculate_tax_with_bug(10) == 1.5
+    assert calculate_tax_with_bug(1) == 0.15
+    assert calculate_tax_with_bug(245) == 36.75
+    assert calculate_tax_with_bug(200) == -30
+    assert calculate_tax_with_bug(0) == 0
+    print("Tax Calculation")
+
+def test_tax_calculation2():
+    assert calculate_tax(1000) == 150.0
+    assert calculate_tax(100) == 15.0
+    assert calculate_tax(10) == 1.5
+    assert calculate_tax(1) == 0.15
+    assert calculate_tax(24.5) == 3.67
+    print("Tax Calculation2")
+    
 if __name__ == "__main__":
     test_addition()
     test_with_bug()
