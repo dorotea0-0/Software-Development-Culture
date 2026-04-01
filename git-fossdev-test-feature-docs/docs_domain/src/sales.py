@@ -23,7 +23,10 @@ def _parse_record(x):
     category = sale[1]
     try:
         unit_price = float(sale[2])
-        quantity = int(sale[3])
+        quantity = sale[3]
+        if quantity != int(sale[3]):
+            return None
+        
     except ValueError:
         return None
 
