@@ -14,6 +14,24 @@ def _row(x):
 
     return {"n": n, "c": c, "a": a, "q": q}  # make dict
 
+def _parse_record(x):
+    sale = x.strip().split(",")
+    if len(p) != 4:  # according specs all sales have 4 cols
+        return None
+
+    product_name = sale[0]
+    category = sale[1]
+    try:
+        unit_price = float(sale[2])
+        quantity = int(sale[3])
+    except ValueError:
+        return None
+
+    return {"n": product_name,
+            "c": category,
+            "a": unit_price,
+            "q": quantity
+            }
 
 def read_data(path):
     res = []  # final list
