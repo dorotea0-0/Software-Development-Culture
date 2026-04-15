@@ -26,7 +26,7 @@ def _parse_record(x):
         quantity = sale[3]
         if quantity != int(sale[3]):
             return None
-        
+
     except ValueError:
         return None
 
