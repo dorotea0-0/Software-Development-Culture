@@ -6,10 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-from pathlib import path
+from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parent[2] / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 project = 'seler'
 copyright = '2026, kirill'

@@ -18,5 +18,7 @@ documentation for details.
    QUICKSTART
    HOW_TO_CONTRIBUTE
    README
-.. include:: ../../README.md
+   api/module
+
+.. include:: ../README.md
    :parser: myst_parser.sphinx_
