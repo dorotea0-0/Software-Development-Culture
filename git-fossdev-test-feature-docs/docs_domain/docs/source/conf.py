@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'sales'
-copyright = '2026, Kirill'
-author = 'Kirill'
+project = 'seler'
+copyright = '2026, kirill'
+author = 'kirill'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
