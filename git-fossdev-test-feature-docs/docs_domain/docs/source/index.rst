@@ -16,3 +16,7 @@ documentation for details.
    :caption: Contents:
 
    QUICKSTART
+   HOW_TO_CONTRIBUTE
+
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_
