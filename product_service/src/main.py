@@ -1,37 +1,20 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-
 app = FastAPI(title="Product Service")
 
+PRODUCTS = {
+    "prod_123": {"id": "prod_123", "name": "Laptop", "price": 999.99, "available": True},
+    "prod_456": {"id": "prod_456", "name": "Mouse", "price": 29.99, "available": True},
+    "prod_789": {"id": "prod_789", "name": "Keyboard", "price": 79.99, "available": False},
+}
 
-class Product(BaseModel):
+
+class ProductResponse(BaseModel):
     id: str
     name: str
     price: float
     available: bool
-
-
-PRODUCTS: dict[str, Product] = {
-    "pencil": Product(
-        id="pencil",
-        name="Pencil",
-        price=1.50,
-        available=True,
-    ),
-    "notebook": Product(
-        id="notebook",
-        name="Notebook",
-        price=4.20,
-        available=True,
-    ),
-    "backpack": Product(
-        id="backpack",
-        name="Backpack",
-        price=35.00,
-        available=False,
-    ),
-}
 
 
 @app.get("/health")
@@ -39,14 +22,12 @@ def health() -> dict[str, str]:
     return {"status": "ok", "service": "product-service"}
 
 
-@app.get("/products/{product_id}", response_model=Product)
-def get_product(product_id: str) -> Product:
+@app.get("/products/{product_id}", response_model=ProductResponse)
+def get_product(product_id: str) -> ProductResponse:
     product = PRODUCTS.get(product_id)
-
-    if product is None:
+    if not product:
         raise HTTPException(
             status_code=404,
-            detail=f"Product '{product_id}' was not found",
+            detail=f"Product '{product_id}' not found"
         )
-
-    return product
+    return ProductResponse(**product)

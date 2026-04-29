@@ -15,8 +15,8 @@ PRODUCT_SERVICE_URL = os.getenv(
 
 
 class OrderRequest(BaseModel):
-    product_id: str
-    quantity: int = Field(gt=0)
+    product_id: str = Field(..., example="prod_123")
+    quantity: int = Field(..., gt=0, le=100, example=1)
 
 
 class OrderResponse(BaseModel):
