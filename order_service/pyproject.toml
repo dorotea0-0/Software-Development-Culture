@@ -1,17 +1,16 @@
 [tool.poetry]
 name = "order-service"
-version = "0.0.1"
-description = "Application for serving users orders"
+version = "0.1.0"
+description = "Application that service user order request"
 authors = ["Artem Vesnin <artemvesnin@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "app", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 fastapi = "^0.136.1"
-uvicorn = {extras = ["standard"], version = "^0.46.0"}
-httpx = "^0.28.1"
+uvicorn = "^0.46.0"
 
 
 [build-system]
